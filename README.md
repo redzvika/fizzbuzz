@@ -1,38 +1,41 @@
 # fizzbuzz demo 
 
 
-####How to build :
+###How to build :
 
-under the root directory call:<BR>
-&nbsp;&nbsp;&nbsp;&nbsp;`docker build --tag node-docker .`
+Under the root directory execute:<BR>
+`docker build --tag node-docker .`
+<br> This will create a docker container with name node-docker 
 
-####How to run locally :<BR>
-expose on port 8080 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;`docker run --publish 8080:3000 node-docker` 
+###How to run locally :<BR>
+Execute command: <BR>
+`docker run --publish 8080:3000 node-docker`
+<br>This will start the docker container and expose port 8080 , you can replace it with your desired port.  
+ 
 
 
-####How to check locally:<BR>
+###How to check locally:<BR>
 
-- execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
+- Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
  --header 'Content-Type: application/json' \
  --data-raw '{
      "count":1
  }'` <br>receive `{"errors":[],"response":"1"}`
  
-- execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
+- Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
  --header 'Content-Type: application/json' \
  --data-raw '{
      "count":3
  }'` <br>receive `{"errors":[],"response":"fizz"}`
  
- - execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
+ - Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
   --header 'Content-Type: application/json' \
   --data-raw '{
       "count":5
   }'` <br>receive `{"errors":[],"response":"buzz"}`
   
   
-- execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl --request POST 'localhost:8080/fizzbuzz' \
+- Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl --request POST 'localhost:8080/fizzbuzz' \
   --header 'Content-Type: application/json' \
   --data-raw '{
     "count":15
