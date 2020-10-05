@@ -1,4 +1,4 @@
-# fizzbuzz demo 
+# fizzbuzz-demo 
 
  
 **How to build :**
