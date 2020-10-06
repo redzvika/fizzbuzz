@@ -17,29 +17,49 @@ router.post('/', function(req, res, next) {
         }
       }
   };
+
+  // validation result
   let validationResult = v.validate(req.body, schema);
   let response = {};
 
+  // check if validation failed.
   if(validationResult.errors.length>0){
     response.errors= validationResult.errors;
     response.response="";
-    res.status(404).send(response)
+    res.status(400).send(response)
   }else{
     let count=req.body.count
     let output=""
 
-    if (count % 15 === 0)
-      output+="FizzBuzz";
-    else if (count % 3 === 0)
-      output+="Fizz";
-    else if (count % 5 === 0)
-      output+="Buzz";
-    else
-      output+=count;
+    for (let i=1;i<=count;i++){
+      output=output+ getSingleFizzBuzz(i);
+      if (i<count){
+        output=output+","
+      }
+    }
     response.errors=[];
     response.response=output;
     res.send(response);
   }
 });
+
+/**
+ * calculate value of FizzBuzz for specific position
+ * @param num
+ * @returns {string}
+ */
+function getSingleFizzBuzz(num) {
+  let output=""
+
+  if (num % 15 === 0)
+    output+="FizzBuzz";
+  else if (num % 3 === 0)
+    output+="Fizz";
+  else if (num % 5 === 0)
+    output+="Buzz";
+  else
+    output+=num;
+  return output;
+}
 
 module.exports = router;

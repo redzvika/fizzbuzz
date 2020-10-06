@@ -20,29 +20,50 @@ Execute command: <BR>
  --header 'Content-Type: application/json' \
  --data-raw '{
      "count":1
- }'` <br>receive `{"errors":[],"response":"1"}`
+ }'` <br>receive `{
+                      "errors": [],
+                      "response": "1"
+                  }`
  
 - Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
  --header 'Content-Type: application/json' \
  --data-raw '{
      "count":3
- }'` <br>receive `{"errors":[],"response":"fizz"}`
+ }'` <br>receive `{
+                      "errors": [],
+                      "response": "1,2,Fizz"
+                  }`
  
  - Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl  --request POST 'localhost:8080/fizzbuzz' \
   --header 'Content-Type: application/json' \
   --data-raw '{
       "count":5
-  }'` <br>receive `{"errors":[],"response":"buzz"}`
+  }'` <br>receive `{
+                       "errors": [],
+                       "response": "1,2,Fizz,4,Buzz"
+                   }`
   
   
 - Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl --request POST 'localhost:8080/fizzbuzz' \
   --header 'Content-Type: application/json' \
   --data-raw '{
     "count":15
-}'` <br>receive `{"errors":[],"response":"fizzbuzz"}`
+}'` <br>receive `{
+                     "errors": [],
+                     "response": "1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz"
+                 }`
   
     
-
+- Execute  command :&nbsp;&nbsp;&nbsp;&nbsp;`curl --request POST 'localhost:8080/fizzbuzz' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+    "count":17
+}'` <br>receive `{
+                     "errors": [],
+                     "response": "1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz,16,17"
+                 }`
+  
+    
   
 
 
