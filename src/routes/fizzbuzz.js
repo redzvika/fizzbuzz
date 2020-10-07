@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET users listing. */
 router.post('/', function(req, res, next) {
   var Validator = require('jsonschema').Validator;
@@ -43,6 +44,13 @@ router.post('/', function(req, res, next) {
   }
 });
 
+
+router.all('/', function(req, res, next){
+  let response = {};
+  response.errors= "Method not supported"
+  response.response="";
+  res.status(405).send(response);
+});
 /**
  * calculate value of FizzBuzz for specific position
  * @param num
